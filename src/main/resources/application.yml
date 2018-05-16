@@ -1,0 +1,17 @@
+spring:
+ application: 
+  name: service-turbine
+server: 
+ port: 8770
+security:
+ basic: 
+  enabled: false
+turbine:
+ aggregator: 
+  clusterConfig: default #指定聚合那些集群，多个使用 , 分隔，默认为default
+ appConfig: cloud-consumer-ribbon,cloud-consumer-feign #配置要监控的服务，多个使用 , 分隔
+ clusterNameExpression: new String("default")
+eureka: 
+ client: 
+  serviceUrl: 
+   defaultZone: http://peer1:8761/eureka/
